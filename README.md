@@ -11,4 +11,8 @@ This repo is an attempt of understanding the sometimes unexpected JS Type Coerci
 * Addition operator (+) (#sec-11.6.1)
 
 ## Test
-Clone the repo and run `npm run test`
+Clone the repo and run:
+```
+npm i
+npm run test
+```
