@@ -11,12 +11,23 @@ function ToNumber(a) {
 		return NaN;
 	}
 	
-	let val = a;
-	if (typeof a === "object") {
-		val = ToPrimitive(a, Number);
+	if (typeof a === "boolean") {
+		return (a === true) ? 1 : 0;
 	}
 
-	return Number(val);
+	if (typeof a === "number") {
+		return a;
+	}
+
+	if (typeof a === "string") {
+		// Not implementing string to number conversion for the sake of simplicity.
+		return Number(a);
+	}
+
+	if (typeof a === "object") {
+		let primValue = ToPrimitive(a, Number);
+		return ToNumber(primValue);
+	}
 }
 
 module.exports = ToNumber;
