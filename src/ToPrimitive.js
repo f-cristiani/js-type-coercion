@@ -1,4 +1,8 @@
 function ToPrimitive(input, preferredType) {
+	if (typeof input !== "object" || input === null) {
+		return input;
+	}
+
 	if (preferredType === Number) {
 		return primitiveToNumber(input);
 	}
