@@ -10,18 +10,14 @@ function ToBoolean(a) {
 	}
 	
 	if (typeof a === "number") {
-		if (a === 0 || isNaN(a)) {
-			return false;
-		}
+		return !(a === 0 || isNaN(a));
 	}
 
 	if (typeof a === "string") {
-		if (a.length === 0) {
-			return false;
-		}
+		return (a.length !== 0);
 	}
 
 	return true;
 }
 
-module.exports = ToNumber;
+module.exports = ToBoolean;
