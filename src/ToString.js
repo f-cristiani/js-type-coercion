@@ -11,12 +11,23 @@ function ToString(a) {
 		return "undefined";
 	}
 	
-	let val = a;
-	if (typeof a === "object") {
-		val = ToPrimitive(a, String);
+	if (typeof a === "boolean") {
+		return (a === true) ? "true" : "false";
 	}
 
-	return String(val);
+	if (typeof a === "number") {
+		// Not implementing number to string conversion for the sake of simplicity.
+		return String(a);
+	}
+
+	if(typeof a === "string") {
+		return a;
+	}
+
+	if (typeof a === "object") {
+		let primValue = ToPrimitive(a, String);
+		return ToString(primValue);
+	}
 }
 
 module.exports = ToString;
